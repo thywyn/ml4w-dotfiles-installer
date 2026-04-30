@@ -31,6 +31,10 @@ elif command -v zypper &> /dev/null; then
     DISTRO="opensuse"
     info "openSUSE detected. Installing base dependencies..."
     sudo zypper install -y git make curl jq
+elif command -v apt-get &> /dev/null; then
+    DISTRO="debian"
+    info "debian-based distro detected. Installing base dependencies..."
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git make curl jq
 else
     error "Unsupported distribution. Please install git, make, curl, and jq manually."
 fi
@@ -40,7 +44,7 @@ TEMP_DIR=$(mktemp -d -t ml4w-installer-XXXXXX)
 info "Cloning ML4W Dotfiles Installer into $TEMP_DIR..."
 
 # 3. Clone and Install the App
-git clone --depth=1 https://github.com/mylinuxforwork/ml4w-dotfiles-installer.git "$TEMP_DIR"
+git clone --depth=1 https://github.com/thywyn/ml4w-dotfiles-installer.git "$TEMP_DIR"
 cd "$TEMP_DIR"
 
 info "Installing ML4W Dotfiles Installer to ~/.local/bin..."
@@ -60,7 +64,7 @@ fi
 
 # 5. Execute the Installer
 info "Launching the Dotfiles Installer..."
-ml4w-dotfiles-installer --install https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
+ml4w-dotfiles-installer --install https://raw.githubusercontent.comw/thywyn/ml4wdotfiles/main/hyprland-dotfiles.dotinst
 
 # Cleanup
 rm -rf "$TEMP_DIR"
