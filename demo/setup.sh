@@ -64,7 +64,7 @@ fi
 
 # 5. Execute the Installer
 info "Launching the Dotfiles Installer..."
-ml4w-dotfiles-installer --install https://raw.githubusercontent.comw/thywyn/ml4wdotfiles/main/hyprland-dotfiles.dotinst
+ml4w-dotfiles-installer --install https://raw.githubusercontent.com/thywyn/ml4wdotfiles/main/hyprland-dotfiles.dotinst
 
 # Cleanup
 rm -rf "$TEMP_DIR"
