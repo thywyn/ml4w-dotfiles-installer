@@ -19,7 +19,7 @@ check_and_install() {
         arch) install_cmd="sudo pacman -S --needed --noconfirm $pkg" ;;
         fedora) install_cmd="sudo dnf install -y $pkg" ;;
         opensuse) install_cmd="sudo zypper install -y $pkg" ;;
-        debian) install_cmd="sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $pkg" ;;
+        debian) install_cmd="sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $pkg" ;;
         *) error "Unsupported distro."; return 1 ;;
     esac
 
@@ -44,7 +44,7 @@ install_package() {
             else sudo pacman -S --needed --noconfirm "$pkg"; fi ;;
         fedora) sudo dnf install -y "$pkg" ;;
         opensuse) sudo zypper install -y "$pkg" ;;
-        debian) sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "$pkg" ;;
+        debian) sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "$pkg" ;;
     esac
 }
 
