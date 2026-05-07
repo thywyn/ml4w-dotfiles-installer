@@ -34,7 +34,7 @@ elif command -v zypper &> /dev/null; then
 elif command -v apt-get &> /dev/null; then
     DISTRO="debian"
     info "debian-based distro detected. Installing base dependencies..."
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git make curl jq
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git make curl jq
 else
     error "Unsupported distribution. Please install git, make, curl, and jq manually."
 fi
