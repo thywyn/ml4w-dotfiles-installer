@@ -44,11 +44,7 @@ install_package() {
             else sudo pacman -S --needed --noconfirm "$pkg"; fi ;;
         fedora) sudo dnf install -y "$pkg" ;;
         opensuse) sudo zypper install -y "$pkg" ;;
-<<<<<<< HEAD
         debian) sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "$pkg" ;;
-=======
-        debian) sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "$pkg" ;;
->>>>>>> 60b8383 (Add Debian distro support)
     esac
 }
 
